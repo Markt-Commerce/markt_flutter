@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:markt/nav_pages/favorites.dart';
+//import 'package:markt/nav_pages/favorites.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,16 +11,45 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  String searchstring = '';
+
+  final texteditingcontroller = TextEditingController();
+
+  @override
+  void initState() {
+    // implement initState
+    super.initState();
+
+    texteditingcontroller.addListener(() {
+      setState(() {
+        searchstring = texteditingcontroller.text;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // implement dispose
+    super.dispose();
+    texteditingcontroller.dispose();
+  }
+
   void goToCart(){
    setState(() {
      
    }); 
   }
 
+  void changeSeachValue(String value){
+    setState(() {
+      searchstring = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: const Padding(
@@ -34,9 +65,13 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: Colors.white,
         elevation: 2.0,
         toolbarHeight: 80.0,
-        actions: const <Widget>[
+        actions:  <Widget>[
           IconButton(
-            onPressed: null, 
+            onPressed: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => Favorites())
+              );
+            }, 
             icon: Icon(
               Icons.favorite_border_rounded,
               color: Colors.black,
@@ -56,7 +91,7 @@ class _HomePageState extends State<HomePage> {
         ],
 
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -90,8 +125,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              //controller: TextEditingController(),
-            )
+              controller: texteditingcontroller,
+            ),
+            Text(searchstring),
           ],
         ),
       )

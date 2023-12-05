@@ -14,7 +14,7 @@ class MarktApp extends StatelessWidget {
     return MaterialApp(
       title: 'The Markt App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor:Color.fromARGB(255, 0, 0, 0)),
+        colorScheme: ColorScheme.fromSeed(seedColor:const Color.fromARGB(255, 0, 0, 0)),
         useMaterial3: true,
       ),
       //darkTheme: ThemeData.dark(),
