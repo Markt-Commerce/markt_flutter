@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:markt/nav_pages/favorites.dart';
-//import 'package:markt/nav_pages/favorites.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,11 +66,7 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 80.0,
         actions:  <Widget>[
           IconButton(
-            onPressed: (){
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => Favorites())
-              );
-            }, 
+            onPressed: () => context.go('/favorites'), 
             icon: Icon(
               Icons.favorite_border_rounded,
               color: Colors.black,
@@ -80,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               )
           ),
           IconButton(
-            onPressed: null, 
+            onPressed: () => context.go('/basket'), 
             icon: Icon(
               Icons.shopping_cart_outlined,
               color: Colors.black,
