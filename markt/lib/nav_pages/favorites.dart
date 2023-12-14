@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Favorites extends StatefulWidget {
   const Favorites({super.key});
@@ -10,6 +11,38 @@ class Favorites extends StatefulWidget {
 class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.black,
+            size: 20.0,
+            semanticLabel: 'back',
+          ),
+          onPressed: ()=>context.go('/'),
+        ),
+        title: Text('Favorites'),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                Text('Favorites'),
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  children: <Widget>[],
+                  )
+              ],
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -45,6 +45,36 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  List<Widget> getCategories(){
+    List<String> categories = ["blah","blah","blah","blah","blah","blah","blah","blah","blah","blah"];
+    List<Widget> categorybuttons = [];
+    for (var i = 0; i < categories.length; i++) {
+      categorybuttons.add(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ElevatedButton(
+            onPressed: ()=>null,
+            style: ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(233, 76, 36, 1.0)),
+              alignment: Alignment.center,
+              padding: MaterialStatePropertyAll(EdgeInsets.all(3.5)),
+              elevation: MaterialStatePropertyAll(3.0),
+              enableFeedback: true,
+            ),
+            child: Text(
+              categories.elementAt(i),
+              style: TextStyle(
+                color: Colors.white,
+                ),
+              )
+            ),
+        )
+      );
+    }
+     categories.map((e) => null);
+    return categorybuttons;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,9 +131,13 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[],
+              child: SizedBox(
+                child: ListView(
+                  children: getCategories(),
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                ),
+                height: 30.0,
               ),
             ),
             TextField(
