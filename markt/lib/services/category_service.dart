@@ -6,7 +6,7 @@ class CategoryService {
   CategoryService();
 
   final String mainurl = '';
-  final String categorynamesurl = '';
+  final String categorynamesurl = 'http://localhost/markt_php/categories_add.php?type=main_names';
   final String tagsurl = ''; 
 
   Future<List<Map<String,dynamic>>> getCategories() async{
@@ -19,7 +19,7 @@ class CategoryService {
     }
   }
 
-  Future<List>getCategoryNames() async{
+  Future<List<String>>getCategoryNames() async{
     http.Response response = await http.get(Uri.parse(categorynamesurl));
     if (response.statusCode > 300) {
       throw Exception('Cannot get categorynames.... retrying');

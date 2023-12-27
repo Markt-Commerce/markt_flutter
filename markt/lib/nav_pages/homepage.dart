@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:markt/services/category_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,8 +47,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<Widget> getCategories(){
-    List<String> categories = ["blah","blah","blah","blah","blah","blah","blah","blah","blah","blah"];
+    List<String> categories = ["blah","blah","blah","blah","blah","blah","blah",];
     List<Widget> categorybuttons = [];
+    /* CategoryService().getCategoryNames()
+    .then((value) =>categories = value); */
     for (var i = 0; i < categories.length; i++) {
       categorybuttons.add(
         Padding(
@@ -143,6 +146,7 @@ class _HomePageState extends State<HomePage> {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
+                  gapPadding: 1.0,
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   borderSide: BorderSide()
                   ),
@@ -157,6 +161,9 @@ class _HomePageState extends State<HomePage> {
               controller: texteditingcontroller,
             ),
             Text(searchstring),
+            ElevatedButton(
+              onPressed: ()=>context.go('/register'), 
+              child: Text('Logout'))
           ],
         ),
       )

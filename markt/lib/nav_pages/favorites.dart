@@ -26,11 +26,7 @@ class _FavoritesState extends State<Favorites> {
         title: Text('Favorites'),
       ),
       body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: <Widget>[
+        children: <Widget>[
                 Text('Favorites'),
                 ListView(
                   scrollDirection: Axis.vertical,
@@ -40,9 +36,6 @@ class _FavoritesState extends State<Favorites> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:markt/nav_pages/cart.dart';
 import 'package:markt/nav_pages/favorites.dart';
 import 'package:markt/nav_pages/homepage.dart';
+import 'package:markt/nav_pages/signup.dart';
 //Color.fromARGB(255, 233, 76, 36)
 
 void main() {
@@ -40,6 +41,10 @@ class MarktApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context,state) => HomePage(),
+        ),
+        GoRoute(
+        path: '/register',
+        builder: (context,state) => SignUp(),
         ),
         GoRoute(
         path: '/basket',

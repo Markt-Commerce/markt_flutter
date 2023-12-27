@@ -25,15 +25,21 @@ class _CartState extends State<Cart> {
         ),
         title: Text('Basket'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Column(
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Basket'),
-            ListView(),
-          ],
-        ),
-        ),
+            Text('Basket',
+            style: TextStyle(
+              fontSize: 30.0
+            ),
+          ),
+          ListView(
+                  scrollDirection: Axis.vertical,
+                  children: <Widget>[],
+                  )
+        ],
+      )
     );
   }
 }
