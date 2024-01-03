@@ -15,11 +15,11 @@ class FavoritesData {
 
   factory FavoritesData.parseJSON(Map<String,dynamic>jsondata){
     return FavoritesData(
-      id: jsondata,
-      buyerId: jsondata,
-      favoriteItemId: jsondata, 
-      favoriteType: jsondata, 
-      thumbnail: jsondata
+      id: jsondata[""],
+      buyerId: jsondata[""],
+      favoriteItemId: jsondata[""], 
+      favoriteType: jsondata[""], 
+      thumbnail: jsondata[""]
       );
   }
 

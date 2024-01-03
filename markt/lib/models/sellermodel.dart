@@ -8,19 +8,58 @@ class SellerModel {
   late int totalRaters;
   late String directions;
   late String email;
-  late String password;
   late String profilePicture;
   late String phoneNumber;
-  late double longitude;
-  late double latitude;
-  late int houseNumber;
-  late String street;
-  late String city;
-  late String state;
-  late String country;
-  late int postalCode;
-  late String useType;
+  late String userType;
   late String userStatus;
 
-  SellerModel();
+  SellerModel({
+    required id,
+    required uniqueId,
+    required shopName,
+    description,
+    category,
+    required totalRating,
+    required totalRaters,
+    directions,
+    required email,
+    profilePicture,
+    phoneNumber,
+    required userType,
+    required userStatus,
+    });
+
+  factory SellerModel.fromJSON(Map<String,dynamic>userdata){
+    return SellerModel(
+      id: userdata["id"], 
+      uniqueId: userdata["uniqueId"], 
+      shopName: userdata["shopName"],
+      description: userdata["description"],
+      directions: userdata["directions"], 
+      totalRating: userdata["totalRating"], 
+      totalRaters: userdata["totalRaters"], 
+      profilePicture: userdata["profilePicture"],
+      phoneNumber: userdata["phoneNumber"],
+      email: userdata["email"], 
+      userType: userdata["useType"], 
+      userStatus: userdata["userStatus"]
+      );
+  }
+
+  tojson(SellerModel data){
+    return <String,dynamic>{
+      "id": data.id, 
+      "uniqueId": data.uniqueId,
+      "shopName": data.shopName,
+      "description": data.description,
+      "directions": data.directions,
+      "totalRating": data.totalRating,
+      "totalRaters": data.totalRaters,
+      "profilePicture": data.profilePicture,
+      "phoneNumber": data.phoneNumber,
+      "email": data.email,
+      "userType":  data.userType,
+      "userStatus": data.userStatus
+    };
+  }
 }

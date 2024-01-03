@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:markt/services/category_service.dart';
+/* import 'package:markt/services/category_service.dart'; */
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

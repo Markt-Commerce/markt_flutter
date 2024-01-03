@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:markt/models/buyermodel.dart';
-import 'package:markt/models/sellermodel.dart';
+/* import 'package:markt/models/buyermodel.dart';
+import 'package:markt/models/sellermodel.dart'; */
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -21,7 +21,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
         padding: EdgeInsets.all(15.0),
         child: Column(
@@ -95,18 +95,19 @@ class _SignUpState extends State<SignUp> {
 }
 
 class BasicInfo extends StatefulWidget {
-  BasicInfo({super.key,user});
-
-  late dynamic user;
+  const BasicInfo({super.key,user});
 
   @override
   State<BasicInfo> createState() => _BasicInfoState();
 }
 
 class _BasicInfoState extends State<BasicInfo> {
+
+  late dynamic user;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
